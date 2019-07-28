@@ -63,6 +63,12 @@ Notes on front end web development
 
 ### Metrics
 
+Tools to get metrics:
+- Lighthouse
+- WebPageTest
+- GTMetrix
+- Pingdom Tools
+
 #### Performance budgets
 
 - Milestone timings: what is the user experience when loading a page?
@@ -143,28 +149,39 @@ Resources:
 
 # Testing
 
+- Writing docs on how to easily create a test
+
 - Jest + react testing library
-- Writing docs
-- Custom helpers: make testing easy
-- Context Providers / Async calls (Graphql, REST endpoints)
+ - Create tests that represent how a user uses the app -> integration tests
+
+- Custom helpers to for writing integration tests (mocks for async calls such as graphql or rest, context providers, libraries etc...)
+
 - Cypress testing
-- Visual regression testing
-- Accessibility
-- e2e flows
+ - Visual regression testing
+ - Accessibility
+ - e2e flows
 
 ---
 
-# UI/UX
+# Visual + Usability -> UI/UX/CSS
 
-- Refactoring UI
+Read Refactoring UI.
 
-- Design tokens
+Writing custom CSS is not great. Adds bloat to an app over time. Use atomic classes such as tachyons or tailwindcss. If using css-in-jss, styled components and styled system are a great combo.
 
-- Theme + styled system + css-in-js
+Create design tokens for your app. Having an abstraction over your styles will help you create different themes. As an example for body text: instead of #444 or 'black', you call your color 'text'. When you create a new theme you can reuse 'text' for your new body text color
+
+styled-system + styled-components + theme = 💯
 
 ---
 
 # Patterns
+
+## General
+
+- Write wrappers over libraries that are consistently used throughout the app.  This could be a network library such as axios or sending events to analytics.
+
+- Use a component library that makes writing UI easy, scalable, accessible, consistent and themeable.
 
 ## React
 
