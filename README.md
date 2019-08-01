@@ -272,6 +272,39 @@ Resources:
 - Accessibility
 - e2e flows
 
+## Which tests should we automate?
+
+Automation requires maintenance. As the application changes, we must update the tests. Dependencies change. Lots of automation requires lots of time. Redundant automation is noisy.
+
+Things to ask yourself:
+
+1. What is your gut feeling?
+2. What is the risk
+
+- Frequency of use by customers (1-5) x Impact (1-5, if broken what's the impact to customers?)
+
+3. What is the value
+
+- Distinctness: does this test provide new info? x Induction to action: how quickly would this failure be fixed?
+
+4. Cost-efficiency
+
+- Quickness: how quickly can this be scripted x Ease: how easy will it be to script this
+
+5. History
+
+- Similar to weak areas: volume of historical failures in related areas x Frequency of breaks: volume of historical failures for this test
+
+Add up the scores
+67-100 Automate
+34-66 Possibly automate
+0-33 Don't automate
+
+- Accessibility
+- Authentication
+- Buying a product
+- Account functionality
+
 ---
 
 # Visual + Usability -> UI/UX/CSS
