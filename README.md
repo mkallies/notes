@@ -9,8 +9,7 @@ Notes on front end web development
 - Use a11y web extensions (axe for chrome or firefox)
 - You can use Chrome's dev tool audit for a11y but axe's chrome extension goes into more detail. They both use axe engine at the core.
 - Check color contrast (axe checks for this)
-- Test with keyboard
-- Test with screen readers
+- Test with screen readers + keyboard
 - Use magnification & zoom
 
 Use this small script to see which element is currently focused
@@ -22,6 +21,8 @@ document.body.addEventListener('focusin', (event) => {
 ```
 
 ### Keyboard navigation
+
+- Test for this using a screen reader
 
 ### Focus management
 
@@ -38,7 +39,7 @@ tabIndex="0" = adds element to tab order
 tabIndex="-1" = remove from tab order
 tabIndex="99329" = moves element up in tab order heirarchy
 
-tabindex + role + name
+tabindex + role + name example:
 
 Focusable, a button widget (not a DIV) and has an accessible name
 
@@ -75,7 +76,9 @@ Alert: aria-live='assertive' / role='alert'
 
 ### Semantic HTML
 
-Use it!
+Use it! This will make a11y much easier for you.
+
+- http://html5doctor.com
 
 ### Colors
 
@@ -137,6 +140,9 @@ Check color contrast. You can use axe for this.
 
 # Performance
 
+Performance needs to be a 1st class citizen. Try and ship 200-300 kb of uncompressed JS on first load. Use CI to break builds if they go over this budget.
+Vendor bundles are an anti-pattern. Vendor caching is only good after someone visits your site since it's cached. First time to visit will download a large vendor bundle.
+
 ## Metrics
 
 Tools to get metrics:
@@ -145,6 +151,7 @@ Tools to get metrics:
 - WebPageTest
 - GTMetrix
 - Pingdom Tools
+- Chrome Code Coverage
 
 ## Performance budgets
 
@@ -260,17 +267,55 @@ Resources:
 
 # Testing
 
-- Writing docs on how to easily create a test
+Why test?
 
-- Jest + react testing library
-- Create tests that represent how a user uses the app -> integration tests
+You should always have tests. These add a couple of things:
 
-- Custom helpers to for writing integration tests (mocks for async calls such as graphql or rest, context providers, libraries etc...)
+1. Prevents regressions
+2. Increases quality of product
+3. Tests act as documentation for your feature
 
-- Cypress testing
-- Visual regression testing
-- Accessibility
-- e2e flows
+## Types of tests
+
+- Unit tests
+- Integration tests
+- e2e tests
+
+I like to favour integration and e2e tests. Jest tests should be run before every commit. CI should always run jest and cypress tests.
+
+## Feature testing
+
+## Performance testing
+
+## Visual regression testing
+
+## Security testing
+
+## A11y testing
+
+Tests can catch 30-50% of a11y issues, depending on the rule set
+
+Automated:
+Unit tests are good for component-specific behaviour, interaction/focus APIs,
+ARIA states
+
+Integration/e2e tests are good for real world browser testing, document/page-level rules, color contrast
+
+- HTML/ARIA validation
+- Form labels
+- Color contrast
+- Accessible names
+- Focus management
+- Specifying a language
+
+Manual:
+
+- Focus order
+- Text alternative quality
+- Screen reader
+- Keyboard support
+- Contrast over images/gradients
+- Error identification
 
 ## Which tests should we automate?
 
@@ -305,6 +350,28 @@ Add up the scores
 - Buying a product
 - Account functionality
 
+## Actions
+
+1. Use Jest + react testing library
+2. Write docs on how to easily create a test for different scenarios
+
+- How and when to mock deps (mocks for async calls such as graphql or rest, libraries etc...)
+- How does the end user use the app?
+- Test helper functions to use and when
+
+3. Use different tests for different reasons
+
+- Cypress testing
+  - e2e is slow, prefer to use this tool for happy paths
+- Visual regression testing
+  - Check different browsers and different viewports
+- Accessibility
+  - People with disabilities want to use your app
+- Integration
+  - Cover edge cases
+- Unit
+  - Not really needed. Prefer integration because components are rarely used in isolation
+
 ---
 
 # Visual + Usability -> UI/UX/CSS
@@ -336,6 +403,11 @@ styled-system + styled-components + theme = 💯
 ---
 
 # TypeScript
+
+- [Introduction to TypeScript](https://www.swyx.io/talks/intro-to-typescript)
+- [TypeScript cheatsheet - react](https://github.com/typescript-cheatsheets/react-typescript-cheatsheet)
+- [TypeScript cheatsheet - react+redux](https://github.com/piotrwitek/react-redux-typescript-guide)
+- [TypeScript cheatsheet](https://github.com/rmolinamir/typescript-cheatsheet)
 
 ## Do not do
 
@@ -386,55 +458,3 @@ styled-system + styled-components + theme = 💯
 - Type parameters
 
 - Constraints
-
----
-
-# Testing
-
-You should always have tests. These add a couple of things:
-
-1. Prevents regressions
-2. Increases quality of product
-3. Tests act as documentation for your feature
-
-## Types of tests
-
-- Unit tests
-- Integration tests
-- e2e tests
-
-I like to favour integration and e2e tests. Jest tests should be run before every commit. CI should always run jest and cypress tests.
-
-## A11y testing
-
-Tests can catch 30-50% of a11y issues, depending on the rule set
-
-Automated:
-Unit tests are good for component-specific behaviour, interaction/focus APIs,
-ARIA states
-
-Integration/e2e tests are good for real world browser testing, document/page-level rules, color contrast
-
-- HTML/ARIA validation
-- Form labels
-- Color contrast
-- Accessible names
-- Focus management
-- Specifying a language
-
-Manual:
-
-- Focus order
-- Text alternative quality
-- Screen reader
-- Keyboard support
-- Contrast over images/gradients
-- Error identification
-
-## Feature testing
-
-## Performance testing
-
-## Visual testing
-
-## Security testing
