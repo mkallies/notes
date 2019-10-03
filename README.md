@@ -12,4 +12,4 @@ Notes on front end web development
 8. [pwa](pwa.md)
 9. [testing](testing.md)
 9. [typescript](typescript.md)
-9. [ux/ux/css](ui-ux-css.md)
+9. [ux/ui/css](ui-ux-css.md)
