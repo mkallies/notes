@@ -85,6 +85,10 @@ dig blog.jemyoung.com
 // Change to home directory
 cd ~
 
+// If Digital Ocean server: (rest is not needed)
+rsync --archive --chown=$USERNAME:$USERNAME ~/.ssh /home/$USERNAME
+
+
 // Create new directory if it doesn't exist
 mkdir -p ~/.ssh
 
