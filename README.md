@@ -2,22 +2,43 @@
 
 Notes on front end web development and other things
 
-1. [a11y](a11y.md)
-2. [analytics](analytics.md)
-3. [aws](aws.md)
-4. [managing state](managing-state.md)
-5. [monitoring](monitoring.md)
-6. [patterns](patterns.md)
-7. [performance](performance.md)
-8. [pwa](pwa.md)
-9. [testing](testing.md)
-9. [typescript](typescript.md)
-9. [ux/ui/css](ui-ux-css.md)
-10. [docker](docker.md)
-11. [ci/cd](ci-cd.md)
-12. [git](git.md)
-13. [bash](bash.md)
-14. [vim](vim.md)
+
+## Front
+
+1. [a11y](frontend/a11y.md)
+2. [analytics](frontend/analytics.md)
+7. [testing](frontend/frontend-testing.md)
+3. [managing state](frontend/managing-state.md)
+4. [patterns](frontend/patterns.md)
+5. [performance](frontend/performance.md)
+6. [pwa](frontend/pwa.md)
+8. [typescript](frontend/typescript.md)
+9. [ux/ui/css](frontend/ui-ux-css.md)
+
+## Back
+
+1. [aws](aws.md)
+2. [backend-testing](backend/backend-testing.md)
+3. [db](backend/db.md)
+4. [message-brokers](backend/message-brokers.md)
+4. [search-engines](backend/search-engines.md)
+
+
+## Devops
+
+1. [aws](devops/aws.md)
+2. [ci/cd](devops/ci-cd.md)
+3. [docker](devops/docker.md)
+4. [monitoring](devops/monitoring.md)
+5. [infrastructure as code](devops/infra-as-code.md)
+
+
+## Other
+
+1. [git](git.md)
+2. [bash](bash.md)
+3. [vim](vim.md)
+
 
 ## People to follow
 
