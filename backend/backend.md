@@ -9,9 +9,10 @@ Backend areas
 
 ## Buy a VPS
 
-Buy one from a cloud provider.  Digital Ocean has a nice setup experience for beginners.
+Buy one from a cloud provider. Digital Ocean has a nice setup experience for beginners.
 
 ## SSH
+
 Generate an ssh key, this provides a public and private key pair.
 
 Give a server your public ssh key and your machine has the private key. This is how they setup a secure tunnel to communicate
@@ -26,7 +27,7 @@ ls // to see files
 ssh-keygen // generate ssh key
 ```
 
-* Give it a unique name
+- Give it a unique name
 
 Getting into a server:
 
@@ -61,21 +62,21 @@ jemyoung.com -> 23.23.185.61 this is an A Record
 
 dig blog.jemyoung.com
 
-
-
-
 ## Server setup
 
 1. Update software
+
 - apt update
 - apt upgrade
 
 2. Create a new user
-- adduser $USERNAME
+
+- adduser \$USERNAME
 
 3. Make that user a super user
-- usermod -aG sudo $USERNAME
-- su $USERNAME
+
+- usermod -aG sudo \$USERNAME
+- su \$USERNAME
 - sudo cat /var/log/auth.log
 
 4. Enable login for new user
@@ -88,6 +89,7 @@ cd ~
 // If Digital Ocean server: (rest is not needed)
 rsync --archive --chown=$USERNAME:$USERNAME ~/.ssh /home/$USERNAME
 
+// May need to add your own pub key to authorized_keys
 
 // Create new directory if it doesn't exist
 mkdir -p ~/.ssh
@@ -97,6 +99,7 @@ vi ~/.ssh/authorized_keys
 ```
 
 Change file permissions:
+
 ```
 chmod 644 ~/.ssh/authorized_keys
 
@@ -114,6 +117,7 @@ sudo service sshd restart
 - Proxy server
 
 Show nginx config:
+
 ```
 sudo less /etc/nginx/sites-available/default
 ```
@@ -126,7 +130,6 @@ Install nodejs, npm and git on the server
 sudo apt install nodejs npm git
 ```
 
-
 Add NodeJS server to server
 
 ```
@@ -138,17 +141,17 @@ cd /var/www/app && git init
 ```
 
 Run application:
+
 ```
 node app.js
 ```
 
-
 ## Configuring nginx for express
-
 
 ## What about server restarts?
 
 Use a process manager
+
 - Keeps your application running
 - Handles errors and restarts
 - Can handle logging and clustering
@@ -156,7 +159,6 @@ Use a process manager
 ```
 sudo npm install --save pm2
 ```
-
 
 ### Security
 
@@ -167,6 +169,7 @@ sudo npm install --save pm2
 - Upgrading NodeJS
 
 Use:
+
 - SSH
 - Firewalls
 - Updates
@@ -174,7 +177,6 @@ Use:
 - VPN
 
 sudo apt install unattended-upgrades
-
 
 Use ufw for port security
 
