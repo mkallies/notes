@@ -10,7 +10,7 @@ A: URL to IPv4
 AAAA: URL to IPv6
 CNAME: URL to URL
 Alias: URL to AWS resource
-
+NS: Name server google.com -> ns1.google.com
 
 1. User requests http://some-domain.com
 2. Route 53 responds with IP: 32.45.87.21 (A record: URL to IP)
