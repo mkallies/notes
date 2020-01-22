@@ -6,7 +6,7 @@ You should always have tests. These add a couple of things:
 
 1. Prevents regressions
 2. Increases quality of product
-3. Tests act as documentation for your feature
+3. Tests act as documentation for your feature's use cases
 
 ## Types of tests
 
@@ -16,15 +16,37 @@ You should always have tests. These add a couple of things:
 
 I like to favour integration and e2e tests. Jest tests should be run before every commit. CI should always run jest and cypress tests.
 
+## Mocking
+
+Makes tests deterministic. Great for dealing with async calls.
+
+## Code Coverage
+
+Use `jest --coverage` to get test coverage
+
+In `jest.config.js` you can use a property `coverageThreshold` to prevent new code being added to the codebase if it lacks a certain coverage threshold
+
+Can also use CodeCov in your CI pipeline to get metrics
+
 ## Feature testing
+
+Use cases must all be tested
+
+As edge cases come up, add them to the integration tests
 
 ## Performance testing
 
 ## Visual regression testing
 
+Applitools
+
 ## Security testing
 
 ## A11y testing
+
+Choose one:
+`cypress-axe` for e2e tests
+`jest-axe` for integration tests
 
 Tests can catch 30-50% of a11y issues, depending on the rule set
 

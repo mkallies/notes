@@ -15,4 +15,4 @@ State checklist:
 [] - Has documentation
 [] - Has tests
 
-Look into x-state. We can define a state machine that we can use to generate state charts for documentation as well as tests. Typescript would help defining the shape of our objects. In a couple of months going back to a part of the app with complex should be easy to understand with documentation + typed objects.
+Look into x-state. We can define a state machine that we can use to generate state charts for documentation as well as tests. Typescript would help defining the shape of our objects. In a couple of months, going back to a complex feature, it should be easy to understand with the documentation that's generated, tests with use cases and typed objects.
